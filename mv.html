@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Video RIIZE</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: linear-gradient(135deg, #050814 0%, #0a1230 50%, #050814 100%); color: white; min-height: 100vh; }
+
+    /* NAVBAR */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; background: rgba(10, 18, 48, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(100, 180, 255, 0.2); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 15px; }
+    .nav-logo { font-size: 1.3rem; font-weight: bold; letter-spacing: 4px; background: linear-gradient(90deg, #7fd8ff, #4a90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-menu { display: flex; gap: 25px; list-style: none; flex-wrap: wrap; }
+    .nav-menu a { color: #cdd9f5; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; position: relative; }
+    .nav-menu a:hover { color: #7fd8ff; }
+    .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #7fd8ff, #4a90ff); transition: width 0.3s; }
+    .nav-menu a:hover::after { width: 100%; }
+    .search-box { display: flex; align-items: center; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(100, 180, 255, 0.3); border-radius: 25px; padding: 8px 18px; transition: all 0.3s; }
+    .search-box:focus-within { border-color: #7fd8ff; box-shadow: 0 0 15px rgba(127, 216, 255, 0.4); }
+    .search-box input { background: transparent; border: none; outline: none; color: white; font-size: 0.9rem; width: 180px; }
+    .search-box input::placeholder { color: #8896b8; }
+    .search-box button { background: transparent; border: none; color: #7fd8ff; cursor: pointer; font-size: 1rem; }
+
+    /* HERO */
+    .hero { text-align: center; padding: 70px 20px 30px; }
+    .hero h1 { font-size: 3rem; letter-spacing: 8px; background: linear-gradient(90deg, #a8e0ff, #4a90ff, #7fd8ff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; animation: shine 3s linear infinite; }
+    @keyframes shine { to { background-position: 200% center; } }
+    .hero .tagline { font-size: 1rem; color: #a8c4ff; letter-spacing: 3px; font-style: italic; }
+    .hero .divider { width: 80px; height: 3px; background: linear-gradient(90deg, transparent, #7fd8ff, transparent); margin: 22px auto; border-radius: 5px; }
+
+    /* YEAR TITLE */
+    .year-title { text-align: center; font-size: 2.2rem; letter-spacing: 15px; background: linear-gradient(90deg, #a8e0ff, #4a90ff, #7fd8ff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 60px auto 15px; animation: shine 3s linear infinite; }
+    .year-title::after { content: ''; display: block; width: 80px; height: 3px; background: linear-gradient(90deg, #7fd8ff, #4a90ff); margin: 15px auto 0; border-radius: 5px; }
+
+    /* GRID MV — 1 grid per grup, rata tengah */
+    .mv-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto 0;
+      padding: 0 30px;
+    }
+    /* Kasih jarak kalau ada 2 grid berturut-turut (tanpa header di antaranya) */
+    .mv-grid + .mv-grid { margin-top: 40px; }
+
+    /* ALBUM HEADER — pemisah antar grup */
+    .album-header {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #7fd8ff;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      max-width: 1100px;
+      margin: 40px auto 20px;
+    }
+    .album-header::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 2px;
+      background: linear-gradient(90deg, #7fd8ff, #4a90ff);
+      margin: 10px auto 0;
+      border-radius: 5px;
+    }
+
+    /* KARTU MV */
+    .mv-card { width: 300px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(100, 180, 255, 0.25); border-radius: 16px; overflow: hidden; text-decoration: none; color: white; transition: all 0.3s ease; display: block; }
+    .mv-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(74, 144, 255, 0.45); border-color: #7fd8ff; }
+    .mv-thumb { position: relative; width: 100%; aspect-ratio: 16 / 9; background: linear-gradient(135deg, #0a1230, #1a2550); overflow: hidden; }
+    .mv-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; display: block; }
+    .mv-card:hover .mv-thumb img { transform: scale(1.08); }
+    .mv-thumb::after { content: '▶'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; background: rgba(0, 0, 0, 0.35); opacity: 0; transition: opacity 0.3s; text-shadow: 0 0 25px rgba(127, 216, 255, 0.9); }
+    .mv-card:hover .mv-thumb::after { opacity: 1; }
+    .mv-info { padding: 15px; text-align: center; }
+    .mv-info h3 { font-size: 1rem; color: #7fd8ff; letter-spacing: 1px; margin-bottom: 5px; line-height: 1.3; }
+    .mv-info .date { font-size: 0.8rem; color: #a0b0d0; letter-spacing: 1px; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 40px 20px 30px; color: #6677a0; font-size: 0.85rem; border-top: 1px solid rgba(100, 180, 255, 0.15); margin-top: 60px; }
+    footer span { color: #7fd8ff; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 15px 20px; justify-content: center; }
+      .nav-menu { gap: 15px; font-size: 0.85rem; }
+      .hero h1 { font-size: 2rem; letter-spacing: 5px; }
+      .search-box input { width: 120px; }
+      .year-title { font-size: 1.6rem; letter-spacing: 8px; }
+      .mv-card { width: 100%; max-width: 340px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">RIIZE</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about-riize.html">About RIIZE & BRIIZE</a></li>
+      <li><a href="about-me.html">About Me</a></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="Cari konten...">
+      <button>🔍</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>MUSIC VIDEO</h1>
+    <div class="divider"></div>
+    <p class="tagline">Klik untuk tonton di YouTube</p>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ================== 2023 ==================== -->
+  <!-- ============================================ -->
+  <h2 class="year-title">2023</h2>
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/2H0duKgnYgE" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/2H0duKgnYgE/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/2H0duKgnYgE/hqdefault.jpg'" alt="Memories"></div>
+      <div class="mv-info"><h3>Memories</h3><p class="date">Agustus 2023</p></div>
+    </a>
+
+    <a href="https://youtu.be/iUw3LPM7OBU" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/iUw3LPM7OBU/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/iUw3LPM7OBU/hqdefault.jpg'" alt="Get A Guitar"></div>
+      <div class="mv-info"><h3>Get A Guitar</h3><p class="date">September 2023</p></div>
+    </a>
+
+    <a href="https://youtu.be/gJMheHHf4GQ" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/gJMheHHf4GQ/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/gJMheHHf4GQ/hqdefault.jpg'" alt="Talk Saxy"></div>
+      <div class="mv-info"><h3>Talk Saxy</h3><p class="date">Oktober 2023</p></div>
+    </a>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- ================== 2024 ==================== -->
+  <!-- ============================================ -->
+  <h2 class="year-title">2024</h2>
+
+  <!-- Standalone awal tahun -->
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/0TAAUWHo4Ec" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/0TAAUWHo4Ec/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/0TAAUWHo4Ec/hqdefault.jpg'" alt="Love 119"></div>
+      <div class="mv-info"><h3>Love 119</h3><p class="date">Januari 2024</p></div>
+    </a>
+
+    <a href="https://youtu.be/Ey53EQhkLY8" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/Ey53EQhkLY8/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/Ey53EQhkLY8/hqdefault.jpg'" alt="Impossible"></div>
+      <div class="mv-info"><h3>Impossible</h3><p class="date">April 2024</p></div>
+    </a>
+
+  </div>
+
+  <!-- Album: RIIZING (Title: Boom Boom Bass) -->
+  <div class="album-header">💿 RIIZING — 1st Mini Album</div>
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/78lNnCitcBM" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/78lNnCitcBM/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/78lNnCitcBM/hqdefault.jpg'" alt="Boom Boom Bass"></div>
+      <div class="mv-info"><h3>Boom Boom Bass</h3><p class="date">Juni 2024</p></div>
+    </a>
+
+    <a href="https://youtu.be/YVwNxYhgCdg" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/YVwNxYhgCdg/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/YVwNxYhgCdg/hqdefault.jpg'" alt="9 Days"></div>
+      <div class="mv-info"><h3>9 Days</h3><p class="date">April 2024</p></div>
+    </a>
+
+    <a href="https://youtu.be/mH7xjaEA-94" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/mH7xjaEA-94/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/mH7xjaEA-94/hqdefault.jpg'" alt="Honestly"></div>
+      <div class="mv-info"><h3>Honestly</h3><p class="date">April 2024</p></div>
+    </a>
+
+    <a href="https://youtu.be/46dquyaoe_c" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/46dquyaoe_c/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/46dquyaoe_c/hqdefault.jpg'" alt="One Kiss"></div>
+      <div class="mv-info"><h3>One Kiss</h3><p class="date">April 2024</p></div>
+    </a>
+
+  </div>
+
+  <!-- Album: Lucky (Title: Lucky) -->
+  <div class="album-header">💿 Lucky — 1st Japan Single</div>
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/3Q49g7M5MlU" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/3Q49g7M5MlU/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/3Q49g7M5MlU/hqdefault.jpg'" alt="Lucky"></div>
+      <div class="mv-info"><h3>Lucky</h3><p class="date">Juli 2024</p></div>
+    </a>
+
+    <a href="https://youtu.be/eb1KhLB1R8s" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/eb1KhLB1R8s/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/eb1KhLB1R8s/hqdefault.jpg'" alt="Be My Next"></div>
+      <div class="mv-info"><h3>Be My Next</h3><p class="date">Agustus 2024</p></div>
+    </a>
+
+  </div>
+
+  <!-- Standalone: Siren & Combo (bukan bagian grup Lucky) -->
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/tZYsvAoSNxQ" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/tZYsvAoSNxQ/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/tZYsvAoSNxQ/hqdefault.jpg'" alt="Siren"></div>
+      <div class="mv-info"><h3>Siren</h3><p class="date">Agustus 2024</p></div>
+    </a>
+
+    <a href="https://youtu.be/QflsDwyl2O4" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/QflsDwyl2O4/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/QflsDwyl2O4/hqdefault.jpg'" alt="Combo"></div>
+      <div class="mv-info"><h3>Combo</h3><p class="date">September 2024</p></div>
+    </a>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- ================== 2025 ==================== -->
+  <!-- ============================================ -->
+  <h2 class="year-title">2025</h2>
+
+  <!-- Album: ODYSSEY (Title: Odyssey) -->
+  <div class="album-header">💿 ODYSSEY — 1st Full Album</div>
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/XO8Wb0sh6sU" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/XO8Wb0sh6sU/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/XO8Wb0sh6sU/hqdefault.jpg'" alt="Odyssey"></div>
+      <div class="mv-info"><h3>Odyssey</h3><p class="date">Mei 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/vmL-XgxwQZU" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/vmL-XgxwQZU/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/vmL-XgxwQZU/hqdefault.jpg'" alt="Bag Bad Back"></div>
+      <div class="mv-info"><h3>Bag Bad Back</h3><p class="date">Mei 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/YtaJn17nHgU" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/YtaJn17nHgU/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/YtaJn17nHgU/hqdefault.jpg'" alt="Ember to Solar"></div>
+      <div class="mv-info"><h3>Ember to Solar (잉걸)</h3><p class="date">Mei 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/vLUtHODdLzk" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/vLUtHODdLzk/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/vLUtHODdLzk/hqdefault.jpg'" alt="Fly Up"></div>
+      <div class="mv-info"><h3>Fly Up</h3><p class="date">Mei 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/b5vM6MfXhVA" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/b5vM6MfXhVA/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/b5vM6MfXhVA/hqdefault.jpg'" alt="Show Me Love"></div>
+      <div class="mv-info"><h3>Show Me Love</h3><p class="date">Mei 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/lNmBNXR5mKk" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/lNmBNXR5mKk/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/lNmBNXR5mKk/hqdefault.jpg'" alt="Midnight Mirage"></div>
+      <div class="mv-info"><h3>Midnight Mirage</h3><p class="date">Mei 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/XBL44lrLvT8" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/XBL44lrLvT8/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/XBL44lrLvT8/hqdefault.jpg'" alt="The End of the Day"></div>
+      <div class="mv-info"><h3>The End of the Day (모든 하루의 끝)</h3><p class="date">Mei 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/ztoPhcfnj3Q" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/ztoPhcfnj3Q/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/ztoPhcfnj3Q/hqdefault.jpg'" alt="Inside My Love"></div>
+      <div class="mv-info"><h3>Inside My Love</h3><p class="date">Mei 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/QNRbCqS_bhs" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/QNRbCqS_bhs/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/QNRbCqS_bhs/hqdefault.jpg'" alt="Another Life"></div>
+      <div class="mv-info"><h3>Another Life</h3><p class="date">Mei 2025</p></div>
+    </a>
+
+  </div>
+
+  <!-- Album: Fame (Title: Fame) -->
+  <div class="album-header">💿 Fame — 2nd Digital Single</div>
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/TVqEwvbZP30" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/TVqEwvbZP30/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/TVqEwvbZP30/hqdefault.jpg'" alt="Fame"></div>
+      <div class="mv-info"><h3>Fame</h3><p class="date">November 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/MRYXsF2lblY" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/MRYXsF2lblY/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/MRYXsF2lblY/hqdefault.jpg'" alt="Sticky Like"></div>
+      <div class="mv-info"><h3>Sticky Like</h3><p class="date">November 2025</p></div>
+    </a>
+
+    <a href="https://youtu.be/81QYAxvO3Ik" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/81QYAxvO3Ik/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/81QYAxvO3Ik/hqdefault.jpg'" alt="Something's in the Water"></div>
+      <div class="mv-info"><h3>Something's in the Water</h3><p class="date">November 2025</p></div>
+    </a>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- ================== 2026 ==================== -->
+  <!-- ============================================ -->
+  <h2 class="year-title">2026</h2>
+
+  <!-- Standalone: All of You -->
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/yfKBI5l81-A" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/yfKBI5l81-A/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/yfKBI5l81-A/hqdefault.jpg'" alt="All of You"></div>
+      <div class="mv-info"><h3>All of You</h3><p class="date">Februari 2026</p></div>
+    </a>
+
+  </div>
+
+  <!-- Album: II (Title: Do Your Dance) -->
+  <div class="album-header">💿 II — 2nd Mini Album</div>
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/HDGCTtuW-Yo" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/HDGCTtuW-Yo/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/HDGCTtuW-Yo/hqdefault.jpg'" alt="Do Your Dance"></div>
+      <div class="mv-info"><h3>Do Your Dance</h3><p class="date">Juni 2026</p></div>
+    </a>
+
+    <a href="https://youtu.be/-jBJWQYog5I" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/-jBJWQYog5I/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/-jBJWQYog5I/hqdefault.jpg'" alt="SOAR"></div>
+      <div class="mv-info"><h3>SOAR</h3><p class="date">Juni 2026</p></div>
+    </a>
+
+    <a href="https://youtu.be/ph5xazcAyqw" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/ph5xazcAyqw/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/ph5xazcAyqw/hqdefault.jpg'" alt="D-D-Done"></div>
+      <div class="mv-info"><h3>D-D-Done</h3><p class="date">Juni 2026</p></div>
+    </a>
+
+    <a href="https://youtu.be/2Di-B_YJoIY" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/2Di-B_YJoIY/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/2Di-B_YJoIY/hqdefault.jpg'" alt="Overdrive"></div>
+      <div class="mv-info"><h3>Overdrive</h3><p class="date">Juni 2026</p></div>
+    </a>
+
+    <a href="https://youtu.be/d4ArzM-YBjM" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/d4ArzM-YBjM/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/d4ArzM-YBjM/hqdefault.jpg'" alt="Like a Bomb"></div>
+      <div class="mv-info"><h3>Like a Bomb</h3><p class="date">Juni 2026</p></div>
+    </a>
+
+    <a href="https://youtu.be/5upwIKbF3DI" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/5upwIKbF3DI/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/5upwIKbF3DI/hqdefault.jpg'" alt="In a Loop"></div>
+      <div class="mv-info"><h3>In a Loop</h3><p class="date">Juni 2026</p></div>
+    </a>
+
+  </div>
+
+  <!-- Album: Sunburst (Title: Sunburst) -->
+  <div class="album-header">💿 Sunburst — 3rd Japan Single</div>
+  <div class="mv-grid">
+
+    <a href="https://youtu.be/RsDXsGIst-s" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/RsDXsGIst-s/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/RsDXsGIst-s/hqdefault.jpg'" alt="Sunburst"></div>
+      <div class="mv-info"><h3>Sunburst</h3><p class="date">Agustus 2026</p></div>
+    </a>
+
+    <a href="https://youtu.be/WVRlRu-srKs" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/WVRlRu-srKs/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/WVRlRu-srKs/hqdefault.jpg'" alt="Rise Over"></div>
+      <div class="mv-info"><h3>Rise Over</h3><p class="date">Agustus 2026</p></div>
+    </a>
+
+    <a href="https://youtu.be/A7zx7t61Sko" target="_blank" class="mv-card">
+      <div class="mv-thumb"><img src="https://img.youtube.com/vi/A7zx7t61Sko/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/A7zx7t61Sko/hqdefault.jpg'" alt="Kill Shot"></div>
+      <div class="mv-info"><h3>Kill Shot</h3><p class="date">Agustus 2026</p></div>
+    </a>
+
+  </div>
+
+  <footer>
+    Made with 🧡 by <span>BRIIZE</span> | Fan-made Website
+  </footer>
+
+</body>
+</html>

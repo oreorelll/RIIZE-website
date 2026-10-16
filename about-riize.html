@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About RIIZE & BRIIZE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #050814 0%, #0a1230 50%, #050814 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    /* ============ NAVBAR ============ */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(10, 18, 48, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 4px;
+      background: linear-gradient(90deg, #7fd8ff, #4a90ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: #cdd9f5;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: #7fd8ff;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #7fd8ff, #4a90ff);
+      transition: width 0.3s;
+    }
+
+    .nav-menu a:hover::after,
+    .nav-menu a.active::after {
+      width: 100%;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(100, 180, 255, 0.3);
+      border-radius: 25px;
+      padding: 8px 18px;
+      transition: all 0.3s;
+    }
+
+    .search-box:focus-within {
+      border-color: #7fd8ff;
+      box-shadow: 0 0 15px rgba(127, 216, 255, 0.4);
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 0.9rem;
+      width: 180px;
+    }
+
+    .search-box input::placeholder { color: #8896b8; }
+    .search-box button {
+      background: transparent;
+      border: none;
+      color: #7fd8ff;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      text-align: center;
+      padding: 70px 20px 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      letter-spacing: 8px;
+      background: linear-gradient(90deg, #a8e0ff, #4a90ff, #7fd8ff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      animation: shine 3s linear infinite;
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    .hero .tagline {
+      font-size: 1rem;
+      color: #a8c4ff;
+      letter-spacing: 3px;
+      font-style: italic;
+    }
+
+    .hero .divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #7fd8ff, transparent);
+      margin: 22px auto;
+      border-radius: 5px;
+    }
+
+    /* ============ SECTION UMUM ============ */
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 30px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.4rem;
+      letter-spacing: 5px;
+      color: #a8c4ff;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #7fd8ff, #4a90ff);
+      margin: 12px auto 0;
+      border-radius: 5px;
+    }
+
+    /* ============ INFO BOX (Tentang RIIZE) ============ */
+    .info-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(100, 180, 255, 0.25);
+      border-radius: 16px;
+      padding: 30px;
+      line-height: 1.9;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(100, 180, 255, 0.2);
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-label {
+      color: #7fd8ff;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .info-value {
+      color: #d0dcf5;
+    }
+
+    /* ============ MEMBER GRID ============ */
+    .members {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .member-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(100, 180, 255, 0.25);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .member-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(74, 144, 255, 0.35);
+      border-color: #7fd8ff;
+    }
+
+    .member-photo {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #0a1230, #1a2550);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4a90ff;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      overflow: hidden;
+    }
+
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .member-card:hover .member-photo img {
+      transform: scale(1.08);
+    }
+
+    .member-info {
+      padding: 15px 10px;
+    }
+
+    .member-info h3 {
+      color: #7fd8ff;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .member-info .role {
+      font-size: 0.8rem;
+      color: #a8c4ff;
+      margin-bottom: 3px;
+    }
+
+    .member-info .birth {
+      font-size: 0.75rem;
+      color: #8896b8;
+    }
+
+    /* ============ BRIIZE BOX ============ */
+    .briize-box {
+      background: linear-gradient(135deg, rgba(74, 144, 255, 0.12), rgba(127, 216, 255, 0.08));
+      border: 1px solid rgba(127, 216, 255, 0.4);
+      border-radius: 16px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .briize-box p {
+      color: #d0dcf5;
+      line-height: 1.9;
+      margin-bottom: 15px;
+    }
+
+    .briize-box .highlight {
+      font-size: 1.2rem;
+      color: #7fd8ff;
+      font-style: italic;
+      letter-spacing: 2px;
+    }
+
+    /* ============ FUN FACTS ============ */
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .fact-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 3px solid #7fd8ff;
+      border-radius: 10px;
+      padding: 18px 20px;
+      transition: all 0.3s;
+    }
+
+    .fact-card:hover {
+      background: rgba(127, 216, 255, 0.08);
+      transform: translateX(5px);
+    }
+
+    .fact-card h4 {
+      color: #7fd8ff;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .fact-card p {
+      font-size: 0.85rem;
+      color: #b0c0e0;
+      line-height: 1.6;
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #6677a0;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(100, 180, 255, 0.15);
+      margin-top: 40px;
+    }
+
+    footer span { color: #7fd8ff; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 768px) {
+      nav { padding: 15px 20px; justify-content: center; }
+      .nav-menu { gap: 15px; font-size: 0.85rem; }
+      .hero h1 { font-size: 2rem; letter-spacing: 5px; }
+      .search-box input { width: 120px; }
+      .info-row { grid-template-columns: 1fr; gap: 3px; }
+      .info-label { font-size: 0.85rem; }
+      .members { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav>
+    <div class="nav-logo">RIIZE</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about-riize.html" class="active">About RIIZE & BRIIZE</a></li>
+      <li><a href="about-me.html">About Me</a></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="Cari konten...">
+      <button>🔍</button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <h1>ABOUT RIIZE & BRIIZE</h1>
+    <div class="divider"></div>
+    <p class="tagline">RIIZE will continue to RISE</p>
+  </section>
+
+  <!-- ============ SECTION 1: TENTANG RIIZE ============ -->
+  <section>
+    <h2 class="section-title">TENTANG RIIZE</h2>
+    <div class="info-box">
+      <div class="info-row">
+        <div class="info-label">Nama Grup</div>
+        <div class="info-value">RIIZE (라이즈)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Arti Nama</div>
+        <div class="info-value">Gabungan dari "RISE" (bangkit) & "REALIZE" (menyadari) — menggambarkan semangat grup ini untuk bangkit dan mewujudkan impian mereka bersama-sama</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Agensi</div>
+        <div class="info-value">SM Entertainment</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Debut</div>
+        <div class="info-value">4 September 2023</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Konsep</div>
+        <div class="info-value">Emotional Pop</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Jumlah Member</div>
+        <div class="info-value">6 orang</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Fandom</div>
+        <div class="info-value">BRIIZE (브리즈)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2: MEMBER ============ -->
+  <section>
+    <h2 class="section-title">MEMBER RIIZE</h2>
+    <div class="members">
+
+      <div class="member-card">
+        <div class="member-photo">
+                   <img src="shotaro.jpg" alt="Shotaro">
+        </div>
+        <div class="member-info">
+          <h3>SHOTARO</h3>
+          <p class="role"> Main Dancer • Rapper</p>
+          <p class="birth">2000.11.25</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="eunseok.jpg" alt="Eunseok">
+        </div>
+        <div class="member-info">
+          <h3>EUNSEOK</h3>
+          <p class="role">Vocalist • Visual</p>
+          <p class="birth">2001.03.19</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="sungchan.jpg" alt="Sungchan">
+        </div>
+        <div class="member-info">
+          <h3>SUNGCHAN</h3>
+          <p class="role"> Main Rapper • Dancer</p>
+          <p class="birth">2001.09.13</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="wonbin.jpg" alt="Wonbin">
+        </div>
+        <div class="member-info">
+          <h3>WONBIN</h3>
+          <p class="role">Vocalist • Center • Dancer</p>
+          <p class="birth">2002.03.02</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="sohee.jpg" alt="Sohee">
+        </div>
+        <div class="member-info">
+          <h3>SOHEE</h3>
+          <p class="role">Main Vocalist</p>
+          <p class="birth">2003.11.21</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="anton.jpg" alt="Anton">
+        </div>
+        <div class="member-info">
+          <h3>ANTON</h3>
+          <p class="role">Vocalist • Maknae</p>
+          <p class="birth">2004.03.21</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3: TENTANG BRIIZE ============ -->
+  <section>
+    <h2 class="section-title">TENTANG BRIIZE</h2>
+    <div class="briize-box">
+      <p>
+        <strong>BRIIZE</strong> adalah nama resmi fandom RIIZE. Nama ini berasal dari kata
+        <em>"BREEZE"</em> (angin sepoi-sepoi) yang melambangkan harapan agar RIIZE dan BRIIZE
+        selalu bersama, mengalir seperti angin, dan tumbuh bersama-sama serta plesetan dari kata <em>"BRIDGE"</em> (jembatan) yang menghubungkan grup dan penggemar.
+      </p>
+      <p class="highlight">"RIIZE, BRIIZE, DDEUNDA"</p>
+      <p>
+        Bersama BRIIZE, RIIZE akan terus naik dan bersinar. 🧡
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 4: FUN FACTS ============ -->
+  <section>
+    <h2 class="section-title">FUN FACTS</h2>
+    <div class="facts">
+      <div class="fact-card">
+        <h4>🎤 Debut Single</h4>
+        <p>RIIZE debut dengan lagu "Get A Guitar" pada 4 September 2023.</p>
+      </div>
+      <div class="fact-card">
+       <h4>🌟 Mantan Member NCT</h4>
+<p>Shotaro & Sungchan pernah debut sebagai member NCT sebelum akhirnya debut ulang bersama RIIZE.</p>
+      </div>
+      <div class="fact-card">
+        <h4>🌏 Multibahasa</h4>
+        <p>Member RIIZE berasal dari Korea, Jepang, dan Amerika — punya fans global.</p>
+      </div>
+      <div class="fact-card">
+        <h4>🧡 Warna Grup</h4>
+        <p>RIIZE identik dengan warna oranye yang melambangkan citra matahari terbit (rising sun), yang sejalan dengan makna nama grup mereka (RISE).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    Made with 🧡 by <span>BRIIZE</span> | Fan-made Website
+  </footer>
+
+</body>
+</html>
