@@ -18,7 +18,6 @@
       min-height: 100vh;
     }
 
-    /* ============ NAVBAR ============ */
     nav {
       display: flex;
       align-items: center;
@@ -105,6 +104,7 @@
     }
 
     .search-box input::placeholder { color: #8896b8; }
+    
     .search-box button {
       background: transparent;
       border: none;
@@ -113,7 +113,6 @@
       font-size: 1rem;
     }
 
-    /* ============ HERO ============ */
     .hero {
       text-align: center;
       padding: 70px 20px 40px;
@@ -150,7 +149,6 @@
       border-radius: 5px;
     }
 
-    /* ============ SECTION UMUM ============ */
     section {
       max-width: 1000px;
       margin: 0 auto;
@@ -176,7 +174,6 @@
       border-radius: 5px;
     }
 
-    /* ============ INFO BOX (Tentang RIIZE) ============ */
     .info-box {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(100, 180, 255, 0.25);
@@ -205,7 +202,6 @@
       color: #d0dcf5;
     }
 
-    /* ============ MEMBER GRID ============ */
     .members {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -275,7 +271,6 @@
       color: #8896b8;
     }
 
-    /* ============ BRIIZE BOX ============ */
     .briize-box {
       background: linear-gradient(135deg, rgba(74, 144, 255, 0.12), rgba(127, 216, 255, 0.08));
       border: 1px solid rgba(127, 216, 255, 0.4);
@@ -297,7 +292,6 @@
       letter-spacing: 2px;
     }
 
-    /* ============ FUN FACTS ============ */
     .facts {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -330,7 +324,6 @@
       line-height: 1.6;
     }
 
-    /* ============ FOOTER ============ */
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -342,7 +335,6 @@
 
     footer span { color: #7fd8ff; }
 
-    /* ============ RESPONSIVE ============ */
     @media (max-width: 768px) {
       nav { padding: 15px 20px; justify-content: center; }
       .nav-menu { gap: 15px; font-size: 0.85rem; }
@@ -356,11 +348,10 @@
 </head>
 <body>
 
-  <!-- ============ NAVBAR ============ -->
   <nav>
     <div class="nav-logo">RIIZE</div>
     <ul class="nav-menu">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="about-riize.html" class="active">About RIIZE & BRIIZE</a></li>
       <li><a href="about-me.html">About Me</a></li>
     </ul>
@@ -370,14 +361,12 @@
     </div>
   </nav>
 
-  <!-- ============ HERO ============ -->
   <section class="hero">
     <h1>ABOUT RIIZE & BRIIZE</h1>
     <div class="divider"></div>
     <p class="tagline">RIIZE will continue to RISE</p>
   </section>
 
-  <!-- ============ SECTION 1: TENTANG RIIZE ============ -->
   <section>
     <h2 class="section-title">TENTANG RIIZE</h2>
     <div class="info-box">
@@ -412,18 +401,17 @@
     </div>
   </section>
 
-  <!-- ============ SECTION 2: MEMBER ============ -->
   <section>
     <h2 class="section-title">MEMBER RIIZE</h2>
     <div class="members">
 
       <div class="member-card">
         <div class="member-photo">
-                   <img src="shotaro.jpg" alt="Shotaro">
+          <img src="shotaro.jpg" alt="Shotaro">
         </div>
         <div class="member-info">
           <h3>SHOTARO</h3>
-          <p class="role"> Main Dancer • Rapper</p>
+          <p class="role">Main Dancer • Rapper</p>
           <p class="birth">2000.11.25</p>
         </div>
       </div>
@@ -445,7 +433,7 @@
         </div>
         <div class="member-info">
           <h3>SUNGCHAN</h3>
-          <p class="role"> Main Rapper • Dancer</p>
+          <p class="role">Main Rapper • Dancer</p>
           <p class="birth">2001.09.13</p>
         </div>
       </div>
@@ -486,7 +474,6 @@
     </div>
   </section>
 
-  <!-- ============ SECTION 3: TENTANG BRIIZE ============ -->
   <section>
     <h2 class="section-title">TENTANG BRIIZE</h2>
     <div class="briize-box">
@@ -496,13 +483,10 @@
         selalu bersama, mengalir seperti angin, dan tumbuh bersama-sama serta plesetan dari kata <em>"BRIDGE"</em> (jembatan) yang menghubungkan grup dan penggemar.
       </p>
       <p class="highlight">"RIIZE, BRIIZE, DDEUNDA"</p>
-      <p>
-        Bersama BRIIZE, RIIZE akan terus naik dan bersinar. 🧡
-      </p>
+      <p>Bersama BRIIZE, RIIZE akan terus naik dan bersinar. 🧡</p>
     </div>
   </section>
 
-  <!-- ============ SECTION 4: FUN FACTS ============ -->
   <section>
     <h2 class="section-title">FUN FACTS</h2>
     <div class="facts">
@@ -511,8 +495,8 @@
         <p>RIIZE debut dengan lagu "Get A Guitar" pada 4 September 2023.</p>
       </div>
       <div class="fact-card">
-       <h4>🌟 Mantan Member NCT</h4>
-<p>Shotaro & Sungchan pernah debut sebagai member NCT sebelum akhirnya debut ulang bersama RIIZE.</p>
+        <h4>🌟 Mantan Member NCT</h4>
+        <p>Shotaro & Sungchan pernah debut sebagai member NCT sebelum akhirnya debut ulang bersama RIIZE.</p>
       </div>
       <div class="fact-card">
         <h4>🌏 Multibahasa</h4>
@@ -525,7 +509,6 @@
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
   <footer>
     Made with 🧡 by <span>BRIIZE</span> | Fan-made Website
   </footer>
