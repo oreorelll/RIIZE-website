@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +8,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
     body { background: linear-gradient(135deg, #050814 0%, #0a1230 50%, #050814 100%); color: white; min-height: 100vh; }
 
-    /* NAVBAR */
     nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; background: rgba(10, 18, 48, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(100, 180, 255, 0.2); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 15px; }
     .nav-logo { font-size: 1.3rem; font-weight: bold; letter-spacing: 4px; background: linear-gradient(90deg, #7fd8ff, #4a90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .nav-menu { display: flex; gap: 25px; list-style: none; flex-wrap: wrap; }
@@ -21,50 +21,27 @@
     .search-box input::placeholder { color: #8896b8; }
     .search-box button { background: transparent; border: none; color: #7fd8ff; cursor: pointer; font-size: 1rem; }
 
-    /* HERO */
     .hero { text-align: center; padding: 70px 20px 30px; }
     .hero h1 { font-size: 2.6rem; letter-spacing: 8px; background: linear-gradient(90deg, #a8e0ff, #4a90ff, #7fd8ff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; animation: shine 3s linear infinite; }
     @keyframes shine { to { background-position: 200% center; } }
     .hero .tagline { font-size: 0.95rem; color: #a8c4ff; letter-spacing: 3px; font-style: italic; }
     .hero .divider { width: 80px; height: 3px; background: linear-gradient(90deg, transparent, #7fd8ff, transparent); margin: 22px auto; border-radius: 5px; }
 
-    /* SECTION */
     section { max-width: 800px; margin: 0 auto; padding: 30px; }
     .section-title { font-size: 1.2rem; color: #a8c4ff; letter-spacing: 4px; text-align: center; margin-bottom: 25px; }
     .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: linear-gradient(90deg, #7fd8ff, #4a90ff); margin: 12px auto 0; border-radius: 5px; }
 
-    /* CARD BOX */
-    .box {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(100, 180, 255, 0.25);
-      border-radius: 16px;
-      padding: 28px 30px;
-      line-height: 1.9;
-      color: #d0dcf5;
-    }
+    .box { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(100, 180, 255, 0.25); border-radius: 16px; padding: 28px 30px; line-height: 1.9; color: #d0dcf5; }
     .box p { margin-bottom: 15px; }
     .box p:last-child { margin-bottom: 0; }
 
-    /* HIGHLIGHT */
     .highlight { color: #7fd8ff; font-weight: 600; }
 
-    /* DEDIKASI */
-    .dedikasi {
-      text-align: center;
-      font-style: italic;
-      color: #a8c4ff;
-      padding: 25px;
-      background: linear-gradient(135deg, rgba(74, 144, 255, 0.1), rgba(127, 216, 255, 0.06));
-      border: 1px solid rgba(127, 216, 255, 0.3);
-      border-radius: 16px;
-      line-height: 1.9;
-    }
+    .dedikasi { text-align: center; font-style: italic; color: #a8c4ff; padding: 25px; background: linear-gradient(135deg, rgba(74, 144, 255, 0.1), rgba(127, 216, 255, 0.06)); border: 1px solid rgba(127, 216, 255, 0.3); border-radius: 16px; line-height: 1.9; }
 
-    /* FOOTER */
     footer { text-align: center; padding: 40px 20px 30px; color: #6677a0; font-size: 0.85rem; border-top: 1px solid rgba(100, 180, 255, 0.15); margin-top: 60px; }
     footer span { color: #7fd8ff; }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav { padding: 15px 20px; justify-content: center; }
       .nav-menu { gap: 15px; font-size: 0.85rem; }
@@ -75,11 +52,10 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav>
     <div class="nav-logo">RIIZE</div>
     <ul class="nav-menu">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="about-riize.html">About RIIZE & BRIIZE</a></li>
       <li><a href="about-me.html" class="active">About Me</a></li>
     </ul>
@@ -89,43 +65,53 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <h1>ABOUT ME</h1>
     <div class="divider"></div>
     <p class="tagline">Di balik website ini</p>
   </section>
 
-  <!-- INTRODUCTION -->
   <section>
     <h2 class="section-title">👋 INTRODUCTION</h2>
     <div class="box">
-      <p>Halo, BRIIZE! Kenalin, namaku <span class="highlight">Aurellya</span> — bisa dipanggil <span class="highlight">Orel</span> salam kenal yaa👋.
- <br>
-Selamat datang di <span class="highlight">RIIZE Content Hub</span>, website fan-made yang aku buat khusus buat mempermudah akses ke semua konten RIIZE di YouTube. 🧡</p>
-      <p>Website ini aku susun dengan sederhana dan sesederhana mungkin. Semoga kamu suka ya, walaupun masih banyak kekurangan dan belum lengkap. Tapi aku udah berusaha semaksimal mungkin biar semua konten RIIZE — dari MV, vlog, recording, sampai dance practice — bisa diakses dengan cepat tanpa harus scroll-scroll di YouTube.</p>
-      <p>Kalau ada saran, kritik, atau konten yang belum masuk, aku terbuka banget buat itu. Selamat menjelajah, dan semoga bermanfaat! ✨</p>
+       <p>
+        Halo, BRIIZE! Kenalin, namaku <span class="highlight">Aurellya Resty</span> — biasa dipanggil <span class="highlight">Orel</span>. Salam kenal yaa 👋. Saat ini, aku adalah mahasiswa aktif Teknik Logistik Semester 5.
+      </p>
+
+      <p>
+        Sebelum jadi BRIIZE seperti sekarang, sebenarnya aku tuh udah fans K-Pop dari lama. Aku juga seorang Carat, loh! Makanya, selain suka sama RIIZE, aku masih sering banget denger lagu-lagu dan nonton konten SEVENTEEN karena temanya seru-seru semua dan selalu bikin sakit perut karena ketawa lama.
+      </p>
+      
+      <p>
+        Nah, karena udah terbiasa nonton konten grup yang super banyak, aku sadar kalau konten RIIZE di YouTube juga nggak kalah banyaknya. Kadang aku suka kewalahan sendiri kalau mau nyari video tertentu. Dari situlah ide untuk bikin website ini muncul.
+      </p>
+
+      <p>
+        Jadi, selamat datang di <span class="highlight">RIIZE Content Hub</span>! Ini adalah website fan-made yang aku buat khusus buat mempermudah akses ke semua konten RIIZE di YouTube. 🧡 Website ini aku susun sesederhana mungkin. Semoga kamu suka ya, walaupun masih banyak kekurangan dan belum lengkap. Tapi aku udah berusaha semaksimal mungkin biar semua konten RIIZE — dari MV, vlog, recording, sampai dance practice — bisa diakses dengan cepat tanpa harus scroll-scroll di YouTube.
+      </p>
+
+      <p>
+        Kalau ada saran, kritik, atau konten yang belum masuk, aku terbuka banget buat itu. Selamat menjelajah, dan semoga bermanfaat! ✨
+      </p>
     </div>
   </section>
 
-  <!-- KENAPA BIKIN WEBSITE INI -->
   <section>
     <h2 class="section-title">💡 KENAPA BIKIN WEBSITE INI?</h2>
-    <div class="box">
-      <p>Aku adalah <span class="highlight">penggemar RIIZE yang baru mulai suka sejak awal tahun 2025</span>. Meskipun terbilang baru, aku udah suka banget sama RIIZE — baik dari sisi musiknya maupun konten-konten variasi mereka.</p>
-      <p>Masalahnya, sebagai penggemar baru, aku sering kewalahan sendiri. <span class="highlight">Konten RIIZE di YouTube banyak banget</span>, dan aku sering scroll-scroll lama buat cari satu video tertentu. Apalagi kalau lagi pengen nonton ulang dan lupa sama judul kontennya, kadang harus gali-gali Youtube mereka dulu.</p>
-      <p>Dari situlah aku kepikiran bikin website ini. <span class="highlight">Sebuah shortcut pribadi</span> yang bisa langsung ngarahin ke konten RIIZE tanpa harus scroll lama. Selain biar bikin aku lebih gampang, aku juga berharap bisa membantu sesama BRIIZE yang punya masalah serupa.</p>
-      <p>Dan yang paling penting — website ini juga jadi cara aku belajar HTML & CSS sekaligus. Jadi hobi dan tugas kuliah bisa digabung jadi satu. 🎵💻</p>
+        <div class="box">
+      <p>Berawal dari rasa penasaran yang tinggi, aku sadar kalau dunia perkuliahan itu tempatnya buat eksplor banyak hal. Ketika dapat tugas buat website, aku langsung kepikiran <span class="highlight">"gimana kalau aku bikin website khusus buat semua konten RIIZE?"</span></p>
+      
+      <p>Dari situlah aku bikin website ini. Tujuannya membuat sebuah <span class="highlight">shortcut pribadi</span> yang bisa ngebantu aku (dan BRIIZE lain) buat nemuin video RIIZE dengan lebih cepat dan rapi. Gak perlu lagi buka YouTube dan scroll ke bawah terus-terusan karena ga ingat judul konten.</p>
+      
+      <p>Proyek ini juga jadi cara terbaik buatku belajar. Rasanya jauh lebih semangat ngoding HTML & CSS kalau yang dibikin adalah hal yang kita sukai. Jadi, selain dapat nilai tugas, aku juga dapet "rumah" baru buat konten RIIZE. 🎵💻</p>
     </div>
   </section>
 
-  <!-- DEDIKASI -->
   <section>
     <h2 class="section-title">🎓 DEDIKASI</h2>
     <div class="dedikasi">
-      Website ini disusun untuk memenuhi salah satu persyaratan penilaian mata kuliah 
-<br>
-<strong>Logika Pemrograman</strong>.
+      Website ini disusun untuk memenuhi salah satu persyaratan penilaian mata kuliah <br>
+      <strong>Logika Pemrograman</strong>.
       <br><br>
       Terima kasih untuk dosen pengampu, teman-teman, dan semua BRIIZE yang udah mendukung. 🧡
     </div>
