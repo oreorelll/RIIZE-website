@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +8,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
     body { background: linear-gradient(135deg, #050814 0%, #0a1230 50%, #050814 100%); color: white; min-height: 100vh; }
 
-    /* NAVBAR */
     nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; background: rgba(10, 18, 48, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(100, 180, 255, 0.2); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 15px; }
     .nav-logo { font-size: 1.3rem; font-weight: bold; letter-spacing: 4px; background: linear-gradient(90deg, #7fd8ff, #4a90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .nav-menu { display: flex; gap: 25px; list-style: none; flex-wrap: wrap; }
@@ -21,74 +21,22 @@
     .search-box input::placeholder { color: #8896b8; }
     .search-box button { background: transparent; border: none; color: #7fd8ff; cursor: pointer; font-size: 1rem; }
 
-    /* HERO */
     .hero { text-align: center; padding: 70px 20px 20px; }
     .hero h1 { font-size: 3rem; letter-spacing: 8px; background: linear-gradient(90deg, #a8e0ff, #4a90ff, #7fd8ff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; animation: shine 3s linear infinite; }
     @keyframes shine { to { background-position: 200% center; } }
     .hero .tagline { font-size: 1rem; color: #a8c4ff; letter-spacing: 3px; font-style: italic; }
     .hero .divider { width: 80px; height: 3px; background: linear-gradient(90deg, transparent, #7fd8ff, transparent); margin: 22px auto; border-radius: 5px; }
 
-    /* SEASON TITLE */
-    .season-title {
-      text-align: center;
-      font-size: 1.8rem;
-      letter-spacing: 10px;
-      background: linear-gradient(90deg, #a8e0ff, #4a90ff, #7fd8ff);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin: 70px auto 15px;
-      padding: 0 20px;
-      animation: shine 3s linear infinite;
-    }
-    .season-title::after {
-      content: '';
-      display: block;
-      width: 100px;
-      height: 3px;
-      background: linear-gradient(90deg, #7fd8ff, #4a90ff);
-      margin: 15px auto 0;
-      border-radius: 5px;
-    }
+    .season-title { text-align: center; font-size: 1.8rem; letter-spacing: 10px; background: linear-gradient(90deg, #a8e0ff, #4a90ff, #7fd8ff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 70px auto 15px; padding: 0 20px; animation: shine 3s linear infinite; }
+    .season-title::after { content: ''; display: block; width: 100px; height: 3px; background: linear-gradient(90deg, #7fd8ff, #4a90ff); margin: 15px auto 0; border-radius: 5px; }
 
-    /* CONTENT HEADER (nama seri) */
-    .content-header {
-      text-align: center;
-      font-size: 0.95rem;
-      color: #a8e0ff;
-      letter-spacing: 2px;
-      font-weight: 600;
-      max-width: 900px;
-      margin: 45px auto 22px;
-      padding: 0 30px;
-      line-height: 1.6;
-    }
-    .content-header::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 2px;
-      background: linear-gradient(90deg, #7fd8ff, #4a90ff);
-      margin: 12px auto 0;
-      border-radius: 5px;
-    }
+    .content-header { text-align: center; font-size: 0.95rem; color: #a8e0ff; letter-spacing: 2px; font-weight: 600; max-width: 900px; margin: 45px auto 22px; padding: 0 30px; line-height: 1.6; }
+    .content-header::after { content: ''; display: block; width: 40px; height: 2px; background: linear-gradient(90deg, #7fd8ff, #4a90ff); margin: 12px auto 0; border-radius: 5px; }
 
-    /* GRID: 2 kartu per baris */
-    .vlog-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 30px;
-    }
+    .vlog-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 800px; margin: 0 auto; padding: 0 30px; }
 
-    /* KARTU */
     .vlog-card { width: 340px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(100, 180, 255, 0.25); border-radius: 16px; overflow: hidden; text-decoration: none; color: white; transition: all 0.3s ease; display: block; }
     .vlog-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(74, 144, 255, 0.45); border-color: #7fd8ff; }
-
     .vlog-thumb { position: relative; width: 100%; aspect-ratio: 16 / 9; background: linear-gradient(135deg, #0a1230, #1a2550); overflow: hidden; }
     .vlog-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; display: block; }
     .vlog-card:hover .vlog-thumb img { transform: scale(1.08); }
@@ -100,11 +48,9 @@
     .vlog-info { padding: 15px; text-align: center; }
     .vlog-info h3 { font-size: 0.9rem; color: #7fd8ff; letter-spacing: 1px; line-height: 1.3; }
 
-    /* FOOTER */
     footer { text-align: center; padding: 40px 20px 30px; color: #6677a0; font-size: 0.85rem; border-top: 1px solid rgba(100, 180, 255, 0.15); margin-top: 80px; }
     footer span { color: #7fd8ff; }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav { padding: 15px 20px; justify-content: center; }
       .nav-menu { gap: 15px; font-size: 0.85rem; }
@@ -118,11 +64,10 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav>
     <div class="nav-logo">RIIZE</div>
     <ul class="nav-menu">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="about-riize.html">About RIIZE & BRIIZE</a></li>
       <li><a href="about-me.html">About Me</a></li>
     </ul>
@@ -138,12 +83,8 @@
     <p class="tagline">Klik untuk tonton di YouTube</p>
   </section>
 
-  <!-- ============================================================= -->
-  <!-- =================== WE RIIZE — SEASON 1 ===================== -->
-  <!-- ============================================================= -->
   <h2 class="season-title">WE RIIZE — SEASON 1</h2>
 
-  <!-- 1. MARS CLUB -->
   <h3 class="content-header">MARS CLUB ❮우리의 아지트!❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/RXH0PKo85vU" target="_blank" class="vlog-card">
@@ -156,7 +97,6 @@
     </a>
   </div>
 
-  <!-- 2. RIIZING MBTI OFFICE -->
   <h3 class="content-header">RIIZING MBTI OFFICE ❮또리의 MBTI를 진단해 봅시다❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/FHkbdmdGrFE" target="_blank" class="vlog-card">
@@ -169,7 +109,6 @@
     </a>
   </div>
 
-  <!-- 3. RIIZE-LAND -->
   <h3 class="content-header">RIIZE-LAND ❮오늘도 좋은 추억 만들었다❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/FESAa1G03i0" target="_blank" class="vlog-card">
@@ -182,7 +121,6 @@
     </a>
   </div>
 
-  <!-- 4. RIIZY CHRISTMAS -->
   <h3 class="content-header">We wish you a RIIZY CHRISTMAS ❮쓸데없는 선물 증정식❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/Wgih_xWWSAE" target="_blank" class="vlog-card">
@@ -199,7 +137,6 @@
     </a>
   </div>
 
-  <!-- 5. 김치볶음밥 -->
   <h3 class="content-header">김치볶음밥 양대산맥 石&彬 ❮떠오르는 샛별과 요리계 대가의 맞대결!❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/u25WgPC7ACU" target="_blank" class="vlog-card">
@@ -212,7 +149,6 @@
     </a>
   </div>
 
-  <!-- 6. 희주의 마음 -->
   <h3 class="content-header">희주의 마음을 뺏어라! ❮초절정 □Й력발산❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/BDAc0CENgks" target="_blank" class="vlog-card">
@@ -225,7 +161,6 @@
     </a>
   </div>
 
-  <!-- 7. TEAM RIIZE -->
   <h3 class="content-header">TEAM RIIZE ❮기합을 모아서 Let's go!❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/vAp3w0YwQaw" target="_blank" class="vlog-card">
@@ -238,7 +173,6 @@
     </a>
   </div>
 
-  <!-- 8. Get A Board Game -->
   <h3 class="content-header">Get A Board Game ❮꼬치의 달인!❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/xbEUaaRlZl4" target="_blank" class="vlog-card">
@@ -251,7 +185,6 @@
     </a>
   </div>
 
-  <!-- 9. 태권라이즈 -->
   <h3 class="content-header">태권라이즈 ❮저는 닿기만 하면 격파합니다❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/9sCx7_nU8yo" target="_blank" class="vlog-card">
@@ -264,7 +197,6 @@
     </a>
   </div>
 
-  <!-- 10. Anton's Swimming School -->
   <h3 class="content-header">Anton's Swimming School ❮앤톤을 이겨라!❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/CB9AvAc_XpU" target="_blank" class="vlog-card">
@@ -277,7 +209,6 @@
     </a>
   </div>
 
-  <!-- 11. 1st Anniversary -->
   <h3 class="content-header">RIIZE 1st Anniversary ❮RIIZE의 CAKE HOUSE❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/KqHX9StmvJE" target="_blank" class="vlog-card">
@@ -286,7 +217,6 @@
     </a>
   </div>
 
-  <!-- 12. The RIIZE Court -->
   <h3 class="content-header">The RIIZE Court ❮누가 신성한 재판장에서 큰 소리를 내❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/QLeBCVDHedw" target="_blank" class="vlog-card">
@@ -299,7 +229,6 @@
     </a>
   </div>
 
-  <!-- 13. RIIZE-LAND S2 -->
   <h3 class="content-header">RIIZE-LAND Season 2 ❮무표정 챌린지 도전?!❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/6ZFhPgDQ7Vs" target="_blank" class="vlog-card">
@@ -308,7 +237,6 @@
     </a>
   </div>
 
-  <!-- 14. RIIZING to the Moment -->
   <h3 class="content-header">𝙍𝙄𝙄𝙕𝙄𝙉𝙂 𝙩𝙤 𝙩𝙝𝙚 𝙈𝙤𝙢𝙚𝙣𝙩 ❮어디까지 가는 거예요?❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/5Od7iv-l7V0" target="_blank" class="vlog-card">
@@ -325,7 +253,6 @@
     </a>
   </div>
 
-  <!-- 15. Eunseok's Board Club -->
   <h3 class="content-header">Eunseok's Board Club ❮이게 컬링이지!❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/Qlfbf6UuDmg" target="_blank" class="vlog-card">
@@ -338,7 +265,6 @@
     </a>
   </div>
 
-  <!-- 16. RUNNING RIIZE -->
   <h3 class="content-header">RUNNING RIIZE ❮무궁화 꽃이 피었습니다!❯</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/vt56z-Wz3PM" target="_blank" class="vlog-card">
@@ -351,7 +277,6 @@
     </a>
   </div>
 
-  <!-- 17. On The RIIZE SHOW -->
   <h3 class="content-header">On The RIIZE SHOW</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/34YPMOn3niw" target="_blank" class="vlog-card">
@@ -360,7 +285,6 @@
     </a>
   </div>
 
-  <!-- 18. RIIZE On Beat -->
   <h3 class="content-header">RIIZE On Beat : Fly Up</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/loMoN7ZcmKs" target="_blank" class="vlog-card">
@@ -369,7 +293,6 @@
     </a>
   </div>
 
-  <!-- 19. RIIZE vs LIES -->
   <h3 class="content-header">RIIZE vs LIES</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/7UeWjeIjptM" target="_blank" class="vlog-card">
@@ -382,7 +305,6 @@
     </a>
   </div>
 
-  <!-- 20. RIIZING SUMMER CAMP -->
   <h3 class="content-header">𝐑𝐈𝐈𝐙𝐈𝐍𝐆 𝐒𝐔𝐌𝐌𝐄𝐑 𝐂𝐀𝐌𝐏</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/C8idn9o_ckE" target="_blank" class="vlog-card">
@@ -395,7 +317,6 @@
     </a>
   </div>
 
-  <!-- 21. 2nd Anniversary -->
   <h3 class="content-header">RIIZE 2nd Anniversary</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/Xi8OXaY6xOc" target="_blank" class="vlog-card">
@@ -408,7 +329,6 @@
     </a>
   </div>
 
-  <!-- 22. 가을 체육대회 -->
   <h3 class="content-header">RIIZE 가을 체육대회</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/Ad-pxEArfgw" target="_blank" class="vlog-card">
@@ -421,7 +341,6 @@
     </a>
   </div>
 
-  <!-- 23. Fame or Fake -->
   <h3 class="content-header">𝑭𝒂𝒎𝒆 𝒐𝒓 𝑭𝒂𝒌𝒆</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/w7RVP6QFNsk" target="_blank" class="vlog-card">
@@ -430,7 +349,6 @@
     </a>
   </div>
 
-  <!-- 24. 2025 RIIZING Awards Night -->
   <h3 class="content-header">2025 RIIZING Awards Night</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/fxRRDqdB_g4" target="_blank" class="vlog-card">
@@ -443,7 +361,6 @@
     </a>
   </div>
 
-  <!-- 25. action actor RIIZE -->
   <h3 class="content-header">action actor RIIZE</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/CDdlwkUzSgo" target="_blank" class="vlog-card">
@@ -452,7 +369,6 @@
     </a>
   </div>
 
-  <!-- 26. You wanna go? -->
   <h3 class="content-header">You wanna go?</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/ZukUUM_3sU0" target="_blank" class="vlog-card">
@@ -461,7 +377,6 @@
     </a>
   </div>
 
-  <!-- 27. 커피라이즈 1호점 -->
   <h3 class="content-header">커피라이즈 1호점</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/f_IQFNBzxls" target="_blank" class="vlog-card">
@@ -474,12 +389,8 @@
     </a>
   </div>
 
-  <!-- ============================================================= -->
-  <!-- =================== WE RIIZE — SEASON 2 ===================== -->
-  <!-- ============================================================= -->
   <h2 class="season-title">WE RIIZE S2 ❮우리 I가 달라졌어요❯</h2>
 
-  <!-- Prologue -->
   <h3 class="content-header">우리 라이즈 정상 영업합니다 | Prologue</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/EYJhIHst_aA" target="_blank" class="vlog-card">
@@ -488,7 +399,6 @@
     </a>
   </div>
 
-  <!-- 5살 타로 -->
   <h3 class="content-header">5살 타로 vs 70살 은석? 감당 안 되는 (무)논리 토론회</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/LbtihsRb2yk" target="_blank" class="vlog-card">
@@ -497,7 +407,6 @@
     </a>
   </div>
 
-  <!-- 이제는 실전이다 -->
   <h3 class="content-header">이제는 실전이다! 한강·송리단길 본격 시민 인터뷰</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/ThmrxgwKpNU" target="_blank" class="vlog-card">
@@ -506,7 +415,6 @@
     </a>
   </div>
 
-  <!-- One Day Three Jobs -->
   <h3 class="content-header">One Day, Three Part-Time Jobs: Haidilao, Everland & Soccer Academy</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/-bhcsZNdJ5U" target="_blank" class="vlog-card">
@@ -519,7 +427,6 @@
     </a>
   </div>
 
-  <!-- 집콕 특집 -->
   <h3 class="content-header">집콕 특집</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/w8mnGtN7zWs" target="_blank" class="vlog-card">
@@ -532,7 +439,6 @@
     </a>
   </div>
 
-  <!-- 공포 특집 -->
   <h3 class="content-header">공포 특집</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/M4fbgMpBLkA" target="_blank" class="vlog-card">
@@ -545,7 +451,6 @@
     </a>
   </div>
 
-  <!-- 편히 잠드소서 -->
   <h3 class="content-header">편히 잠드소서… 라이즈 쉼부름 센털~</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/bWAJXkURUuw" target="_blank" class="vlog-card">
@@ -554,7 +459,6 @@
     </a>
   </div>
 
-  <!-- 또 납치당했는데 -->
   <h3 class="content-header">또 납치당했는데 여기 산속이에요 님들아</h3>
   <div class="vlog-grid">
     <a href="https://youtu.be/O_j-q0Ei8Rc" target="_blank" class="vlog-card">
